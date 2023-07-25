@@ -1,0 +1,22 @@
+{
+  "name": "crm-model",
+  "version": "1.0.0",
+  "description": "Customer Relationship Management (CRM) software helps businesses manage their relationships with customers by storing and organizing customer data, tracking customer interactions, and automating tasks.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dariomasip/CRM-model.git"
+  },
+  "keywords": [
+    "crm"
+  ],
+  "author": "Dario Masip <masipdario@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dariomasip/CRM-model/issues"
+  },
+  "homepage": "https://github.com/dariomasip/CRM-model#readme"
+}
