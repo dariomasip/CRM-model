@@ -6,7 +6,7 @@ require("dotenv").config();
 
 require("./config/database");
 
-app.use("/api/leads", require("./routes/lead.route"));
+app.use("/api/v1.0/leads", require("./routes/lead.route"));
 
 app.use(bodyParser.json());
 app.use(morgan("dev"));
