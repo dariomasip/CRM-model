@@ -4,7 +4,7 @@
   "description": "Customer Relationship Management (CRM) software helps businesses manage their relationships with customers by storing and organizing customer data, tracking customer interactions, and automating tasks.",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/",
     "start": "node src/"
   },
@@ -30,6 +30,7 @@
     "sequelize": "^6.32.1"
   },
   "devDependencies": {
+    "jest": "^29.6.1",
     "nodemon": "^3.0.1"
   }
 }
