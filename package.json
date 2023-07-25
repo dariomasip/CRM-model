@@ -4,7 +4,9 @@
   "description": "Customer Relationship Management (CRM) software helps businesses manage their relationships with customers by storing and organizing customer data, tracking customer interactions, and automating tasks.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/",
+    "start": "node src/"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/dariomasip/CRM-model/issues"
   },
-  "homepage": "https://github.com/dariomasip/CRM-model#readme"
+  "homepage": "https://github.com/dariomasip/CRM-model#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
