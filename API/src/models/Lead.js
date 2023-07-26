@@ -12,13 +12,13 @@ const Lead = database.define(
     name: {
       type: sequelize.DataTypes.STRING,
     },
-    state: {
+    state_id: {
       type: sequelize.DataTypes.INTEGER.UNSIGNED,
     },
     contact_schedule: {
       type: sequelize.DataTypes.JSON,
     },
-    country: {
+    country_id: {
       type: sequelize.DataTypes.INTEGER.UNSIGNED,
     },
     province: {
@@ -27,21 +27,18 @@ const Lead = database.define(
     locality: {
       type: sequelize.DataTypes.STRING,
     },
-    company: {
+    company_id: {
       type: sequelize.DataTypes.INTEGER.UNSIGNED,
     },
-    current_assigned_user: {
+    agent_id: {
       type: sequelize.DataTypes.INTEGER.UNSIGNED,
     },
     created_at: {
       type: sequelize.DataTypes.DATE,
-      defaultValue: sequelize.literal(
-        "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-      ),
     },
     updated_at: {
       type: sequelize.DataTypes.DATE,
-      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      defaultValue: null,
     },
     deleted_at: {
       type: sequelize.DataTypes.DATE,
