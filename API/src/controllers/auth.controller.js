@@ -43,7 +43,7 @@ authenticateController.login = async (req, res) => {
       error,
     });
     return res.send({
-      error: error.message,
+      errorMessage: error.message,
     });
   }
 };

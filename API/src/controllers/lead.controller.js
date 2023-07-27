@@ -79,4 +79,39 @@ leadController.createLead = async (req, res) => {
   }
 };
 
+/**
+ * This function updates the state of a lead.
+ *
+ * @param {Object} req The request object.
+ * @param {Object} res The response object.
+ * @returns {Object} The updated lead.
+ */
+leadController.updateState = async (req, res) => {
+  // Get the lead ID and new state ID from the request.
+  const { leadId, newStateId } = req.params;
+
+  try {
+    const updatedState = Lead.update(
+      {
+        state_id: newStateId,
+      },
+      {
+        where: {
+          id_lead: leadId,
+        },
+      }
+    );
+
+    // Return the updated lead.
+    return res.send(updatedState);
+  } catch (error) {
+    // Log the error and return an error response.
+    console.error({ error });
+
+    return res.send({
+      errorMessage: error.message,
+    });
+  }
+};
+
 module.exports = leadController;
