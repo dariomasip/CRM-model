@@ -1,4 +1,6 @@
 const Lead = require("../models/Lead");
+const ActivityLeads = require("../models/ActivityLeads");
+const CONSTANTS_GLOBALS = require("../globals/constants");
 
 const leadController = {};
 
@@ -62,7 +64,7 @@ leadController.createLead = async (req, res) => {
       province,
       locality,
       agent_id: req.id,
-      state_id: 1,
+      state_id: CONSTANTS_GLOBALS.statusLeads.new,
     });
     // Save the lead record in the database.
     await leadCreation.save();
@@ -91,7 +93,7 @@ leadController.updateState = async (req, res) => {
   const { leadId, newStateId } = req.params;
 
   try {
-    const updatedState = Lead.update(
+    const updatedState = await Lead.update(
       {
         state_id: newStateId,
       },
@@ -100,7 +102,20 @@ leadController.updateState = async (req, res) => {
           id_lead: leadId,
         },
       }
-    );
+    ).then(async () => {
+      await ActivityLeads.create({
+        lead_id: leadId,
+        user_id: req.id,
+        type_id: CONSTANTS_GLOBALS.typesActivityLeads.changeState,
+        date: Date.now(),
+        description: `El cliente ${leadId} cambió al estado ${newStateId}.`,
+      }).catch((error) => {
+        console.error({ error });
+        return res.send({
+          errorMessage: error.message,
+        });
+      });
+    });
 
     // Return the updated lead.
     return res.send(updatedState);
