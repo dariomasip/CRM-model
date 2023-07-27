@@ -15,6 +15,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
+app.use("/api/v1.0/auth", require("./routes/auth.route"));
 app.use("/api/v1.0/leads", require("./routes/lead.route"));
 
 app.set("port", process.env.PORT || 3001);

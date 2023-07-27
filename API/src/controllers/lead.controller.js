@@ -51,7 +51,6 @@ leadController.createLead = async (req, res) => {
     province,
     locality,
     company: company_id,
-    agent: agent_id,
   } = req.body;
 
   try {
@@ -62,7 +61,7 @@ leadController.createLead = async (req, res) => {
       company_id,
       province,
       locality,
-      agent_id,
+      agent_id: req.id,
       state_id: 1,
     });
     // Save the lead record in the database.
